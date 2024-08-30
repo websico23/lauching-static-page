@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%, #fad0c4 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    animation: bounceIn 1s ease;
+}
+
+#funckey {
+    padding: 20px 50px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 1s infinite;
+}
+
+#funckey:hover {
+    background-color: #ff4081;
+    transform: scale(1.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+#countdown {
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-2000px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(30px);
+    }
+    80% {
+        transform: scale(0.9) translateY(-10px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
