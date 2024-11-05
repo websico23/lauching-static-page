@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confetti Button</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-        <div class="container">
-            <button id="funckey" onclick="window.location.href='http://www.websico.in';">Open website</button>
 
-            <div id="countdown"></div>
-        </div>    
+<body>
+    <div class="container">
+        <button id="funckey">Launch Me!</button>
+        <div id="countdown"></div>
+        <video id="celebrationVideo" src="WhatsApp Video 2024-11-06 at 02.27.47_7d51aef6.mp4" style="display: none;"
+            autoplay></video>
+        <div id="fireworks" style="display: none;"></div>
+    </div>
+    <script>
+        document.getElementById('funckey').addEventListener('click', function () {
+            const countdownElement = document.getElementById('countdown');
+            const video = document.getElementById('celebrationVideo');
+            const fireworks = document.getElementById('fireworks');
+            let countdown = 10;
+
+            this.style.display = 'none';
+            countdownElement.style.display = 'block';
+            countdownElement.innerHTML = countdown;
+
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.innerHTML = countdown;
+
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    countdownElement.style.display = 'none';
+                    video.style.display = 'block';
+                    video.play();
+
+                    video.onended = () => {
+                        fireworks.style.display = 'block';
+                        launchFireworks();
+                        setTimeout(() => {
+                            window.location.href = "https://klef.websico.in";
+                        }, 3000);
+                    };
+                }
+            }, 1000);
+        });
+
+        function launchFireworks() {
+            // Fireworks animation logic
+            fireworks.innerHTML = ''; // Reset fireworks
+            // Add firework particles, animations, or any other effect here.
+            setTimeout(() => fireworks.style.display = 'none', 3000); // Hide fireworks after 3 seconds
+        }
+
+    </script>
 </body>
+
 </html>
